@@ -2,7 +2,7 @@
 
 Fearless Demos is a website that lists demos written in Fearless.
 A demo is an app or a library.
-Each demo is one zip that the visitor downloads.
+Each demo is one zip with a URL that the visitor copies, to import the URL with the Fearless manager.
 The website is plain html, css and Javascript.
 The website uses no framework, no build tool and no web font.
 The website loads no script or style from any other site.
@@ -38,7 +38,7 @@ Example of a demo file:
 | `summary` | yes | One or two sentences, as non-empty text. |
 | `rank` | yes | One of `base`, `core`, `driver`, `worker`, `framework`, `accumulator`, `tool`, `app`, followed by exactly three digits. |
 | `tags` | yes | A non-empty list of different tags. |
-| `download` | yes | An https URL of a zip that downloads directly. |
+| `download` | yes | The https URL of the zip. The button Copy URL of the card copies this URL. |
 | `page` | no | An https URL of a page about the demo. |
 | `image` | no | An https URL of a picture shown on the card of the demo. |
 

@@ -295,8 +295,10 @@ legend + * { clear: both; }
   border-radius: 10px;
   background: var(--surface);
   color: var(--text);
+  font: inherit;
   font-weight: 650;
   text-decoration: none;
+  cursor: pointer;
   transition: background-color 0.15s, border-color 0.15s;
 }
 .button:hover { border-color: var(--accent); background: var(--accent_soft); }
@@ -373,3 +375,4 @@ pre { max-width: 100%; margin-left: 0; padding: 16px 18px; border: 1px solid var
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .card:hover { transform: none; }
 }
+.actions .button.primary { min-width: 8.5rem; }

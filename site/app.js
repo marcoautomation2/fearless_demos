@@ -139,16 +139,30 @@ function tagButton(demo, tag) {
   return el("li", {}, button);
 }
 
-function actionLink(url, label, demo, primary) {
-  return el("a", { class: primary ? "button primary" : "button", href: url, rel: "noopener", "aria-label": `${label} of ${demo.title}` }, label);
+function actionLink(url, label, demo) {
+  return el("a", { class: "button", href: url, rel: "noopener", "aria-label": `${label} of ${demo.title}` }, label);
+}
+
+async function copyUrl(button, demo) {
+  const label = button.textContent;
+  const copied = await navigator.clipboard.writeText(demo.download).then(() => true, () => false);
+  button.textContent = copied ? "Copied" : "Copy failed";
+  byId("copy_status").textContent = `The URL of ${demo.title} ${copied ? "is copied" : "could not be copied"}.`;
+  setTimeout(() => { button.textContent = label; }, 2000);
+}
+
+function copyButton(demo) {
+  const button = el("button", { type: "button", class: "button primary", "aria-label": `Copy the URL of ${demo.title}` }, "Copy URL");
+  button.addEventListener("click", () => copyUrl(button, demo));
+  return button;
 }
 
 function card(demo) {
   const badges = [el("span", { class: "badge kind" }, demo.app ? "App" : "Library")];
   if (demo.edu) { badges.push(el("span", { class: "badge edu" }, "Educational")); }
   badges.push(el("code", { class: "badge rank" }, demo.rank));
-  const actions = [actionLink(demo.download, "Download .zip", demo, true)];
-  if (demo.page) { actions.push(actionLink(demo.page, "Details", demo, false)); }
+  const actions = [copyButton(demo)];
+  if (demo.page) { actions.push(actionLink(demo.page, "Details", demo)); }
   const body = el("div", { class: "body" },
     el("h3", { class: "title" }, demo.title),
     el("div", { class: "badges" }, ...badges),

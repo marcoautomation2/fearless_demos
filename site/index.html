@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>Fearless Demos</title>
-  <meta name="description" content="Apps and libraries written in Fearless. Every demo is one zip to download.">
+  <meta name="description" content="Apps and libraries written in Fearless. Every demo is one zip with a URL to copy.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="app.js"></script>
@@ -29,8 +29,8 @@
     <section class="hero" aria-labelledby="hero_title">
       <div class="wrap">
         <p class="eyebrow">Made with Fearless</p>
-        <h1 id="hero_title">Download, run and learn from programs written in Fearless</h1>
-        <p class="lead">Every demo is one zip. An app opens in the Fearless manager. A library goes into your own Fearless project.</p>
+        <h1 id="hero_title">Run and learn from programs written in Fearless</h1>
+        <p class="lead">Every demo is one zip with a URL. Copy the URL and import it with the Fearless manager.</p>
         <div class="search" role="search">
           <label class="sr" for="search">Search demos by title, summary, tag or id</label>
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
@@ -87,6 +87,7 @@
         <div class="toolbar">
           <h2 id="results_title">Demos</h2>
           <p id="count" class="count" aria-live="polite"></p>
+          <p id="copy_status" class="sr" role="status"></p>
           <div class="sort">
             <label for="sort">Sort by</label>
             <select id="sort" name="sort">
@@ -124,20 +125,21 @@
           <article>
             <h3>Run an app</h3>
             <ol>
-              <li>Download the zip of an app. The name of the zip ends with <code>_app.zip</code> or <code>_edu_app.zip</code>.</li>
-              <li>Create an empty folder and place the zip alone in the folder.</li>
-              <li>Import the folder with the Fearless manager.</li>
+              <li>Press <strong>Copy URL</strong> on the card of an app. The zip of an app ends with <code>_app.zip</code> or <code>_edu_app.zip</code>.</li>
+              <li>Import the URL with the Fearless manager.</li>
+              <li>The app is a project of the manager. Run the project.</li>
             </ol>
           </article>
           <article>
             <h3>Use a library</h3>
             <ol>
-              <li>Download the zip of a library. The name of the zip ends with <code>_lib.zip</code> or <code>_edu_lib.zip</code>.</li>
-              <li>Copy the zip, unzipped or not, into a Fearless project.</li>
-              <li>The copy adds the library to the project.</li>
+              <li>Press <strong>Copy URL</strong> on the card of a library. The zip of a library ends with <code>_lib.zip</code> or <code>_edu_lib.zip</code>.</li>
+              <li>Import the URL into a Fearless project with the Fearless manager.</li>
+              <li>The import adds the library to the project.</li>
             </ol>
           </article>
         </div>
+        <p class="aside">The zip also works by hand. Put the zip of an app alone in an empty folder and import the folder. Copy the zip of a library, unzipped or not, into a Fearless project.</p>
         <p class="aside">The part <code>_edu_</code> in the name of a zip marks an educational demo: a demo designed to teach programming in Fearless.</p>
       </section>
       <section id="ranks" aria-labelledby="ranks_title">
@@ -167,7 +169,7 @@
           <li>The fields <code>title</code>, <code>summary</code>, <code>rank</code>, <code>tags</code> and <code>download</code> are required. The fields <code>page</code> and <code>image</code> are optional.</li>
           <li>The id is the name of the file without <code>.json</code>: lowercase letters, digits and underscores, starting with a letter.</li>
           <li>A tag is made of lowercase letters, digits and single spaces.</li>
-          <li>The fields <code>download</code>, <code>page</code> and <code>image</code> are https URLs.</li>
+          <li>The fields <code>download</code>, <code>page</code> and <code>image</code> are https URLs. The button Copy URL copies the URL in <code>download</code>.</li>
           <li>The zip named by <code>download</code> ends with <code>_app.zip</code> or <code>_edu_app.zip</code> for the rank <code>app</code>, and with <code>_lib.zip</code> or <code>_edu_lib.zip</code> for any other rank.</li>
         </ul>
         <p><a class="button primary" href="https://github.com/MarcoServetto/fearless_demos/tree/main/demos">Open the demos folder</a>
